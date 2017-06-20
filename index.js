@@ -9,7 +9,7 @@ module.exports = {
   search: function(keyword, cb) {
     let torrents = []
     var reqURL = torlockURL + '/all/torrents/' + keyword + '.html'
-    cloudscraper.get(torlockURL, function(error, response, body) {
+    cloudscraper.get(reqURL, function(error, response, body) {
       var $ = cheerio.load(body)
       $('table:nth-child(2) tr').each(function(index, el) {
         var torrent = {}
